@@ -37,9 +37,47 @@ public class AllSteps extends TestClass {
 
     public void clickArt(){
         driver.findElement(By.xpath("//a[contains(text(),'Art')]")).click();
-        String category ="ART";
-        assertEquals(category,driver.findElement(By.xpath("//div[@id='left-column']/div/ul/li")).getText());
 
+    }
+
+    @Then("^Art category products to be loaded$")
+    public void assert_art_category(){
+        String category = "ART";
+        assertEquals(category, driver.findElement(By.xpath("//div[@id='left-column']/div/ul/li")).getText());
+        tearDown();
+    }
+
+
+    @When("^User selects filter by Composition$")
+    public void select_composition(){
+        ClickElementXpath("//label/span/span");
+    }
+
+    @Then("^Composition filter should be applied$")
+    public void assert_filter(){
+        CompareTextFilter("Composition: Matt paper\n" +
+                "\uE5CD");
+        ClearFilter();
+        tearDown();
+    }
+
+    @When("^User selects filter by Brand$")
+    public void select_brand(){
+        ClickElementXpath("//section[2]/ul/li/label/span/span");
+    }
+    @Then("^Brand filter should be applied$")
+    public void assert_brand_filter(){
+        CompareTextFilter("Brand: Graphic Corner\n" +
+                "\uE5CD");
+        ClearFilter();
+        tearDown();
+    }
+    @Then("select {string} and verify {string}")
+    public void check_dimension_filter(String locator, String dimension){
+        ClickElementXpath(locator);
+        CompareTextFilter(dimension);
+        ClearFilter();
+        tearDown();
     }
     /*    @Given("^user is on homepage$")
     public void user_is_on_homepage() {

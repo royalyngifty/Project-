@@ -35,6 +35,12 @@ public class PageElements extends BaseClass{
         driver.findElement(By.xpath(locator)).sendKeys(text);
     }
 
+    public void CompareTextFilter(String value){
+        assertEquals(value,driver.findElement(By.xpath("//section[@id='js-active-search-filters']/ul/li")).getText());
 
+    }
+    public void ClearFilter(){
+        ClickElementXpath("//div[2]/div[2]/div/button");
+    }
 
 }

@@ -30,7 +30,7 @@ public class AllSteps extends TestClass {
     public void artCategory(){
         clickArt();
     }
-    @And("^User clicks on Art Category$")
+    @And("^User clicks on Art Category Link$")
     public void artCategoryClick(){
         clickArt();
     }
@@ -50,21 +50,22 @@ public class AllSteps extends TestClass {
 
     @When("^user clicks on product$")
     public void user_clicks_on_product() {
-        driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/section/div/article[1]/div/a/img")).click();
+        ClickElementXpath("//a[contains(text(),'Hummingbird printed t-shirt')]");
+
     }
 
     @And("^user clicks on Add to cart button$")
     public void user_clicks_on_add_to_cart_button() {
-        driver.findElement(By.xpath("/html/body/main/section/div/div/section/div[1]/div[2]/div[2]/div[2]/form/div[2]/div/div[2]/button")).click();
+        ClickElementXpath("(//button[@type='submit'])[2]");
     }
 
-    @Then("^Product successfully added to your shopping cart is displayed$")
-    public void product_successfully_added_to_your_shopping_cart_is_displayed() {
+    @Then("^Proceed to checkout option should be displayed$")
+    public void Proceed_to_checkout_is_displayed()  {
         // ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         // driver.switchTo().window(tabs.get(1)); //switches to pop up
-
-        String actualString = driver.findElement(By.id("myModalLabel")).getText();
-        assertTrue(actualString.contains("Product successfully added to your shopping cart"));
+       //        String actualString = driver.findElement(By.cssSelector("css=#myModalLabel")).getText();
+//        assertTrue(actualString.contains("Product successfully added to your shopping cart"));
+        assertTrue(driver.findElement(By.xpath("//div[@id='blockcart-modal']/div/div/div[2]/div/div/div/div[2]/h6")).isDisplayed());
         //    driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/button/span/i")).click();
 
     }
@@ -142,5 +143,6 @@ public class AllSteps extends TestClass {
         assertTrue(actualString.contains("Your order is confirmed"));
 
     }
+
 
 }

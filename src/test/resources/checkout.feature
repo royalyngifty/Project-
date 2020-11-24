@@ -5,7 +5,7 @@ Feature: Checkout
     Given User is on the homepage
     When user clicks on product
     And user clicks on Add to cart button
-    Then Product successfully added to your shopping cart is displayed
+    Then Proceed to checkout option should be displayed
 
 
   @testing

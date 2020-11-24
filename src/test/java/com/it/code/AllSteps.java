@@ -148,7 +148,7 @@ public class AllSteps extends TestClass {
     @Then("^Your order is confirmed is displayed$")
     public void your_order_is_confirmed_is_displayed() {
         assertTrue(driver.findElement(By.xpath("/html/body/main/section/div/div/section/section[1]/div/div/div/h3")).isDisplayed());
-
+        
 //        String actualString = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section[1]/div/div/div/h3")).getText();
 //        assertTrue(actualString.contains("Your order is confirmed"));
 

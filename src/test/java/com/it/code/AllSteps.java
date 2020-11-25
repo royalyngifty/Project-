@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.ArrayList;
@@ -19,24 +20,28 @@ public class AllSteps extends TestClass {
 
     @Given("^User is on the homepage$")
     public void openHome(){
-        driver = new ChromeDriver();
+        driver = new FirefoxDriver();
         driver.get("http://40.76.27.113:8085/en/");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         js = (JavascriptExecutor)driver;
         assertEquals("PrestShop",driver.getTitle());
     }
+
     @When("^User clicks on Art Category$")
-    public void artCategory(){
+    public void artCategory() {
         clickArt();
+
     }
     @And("^User clicks on Art Category Link$")
     public void artCategoryClick(){
         clickArt();
     }
 
-    public void clickArt(){
+    public void clickArt() {
         driver.findElement(By.xpath("//a[contains(text(),'Art')]")).click();
+        String category ="ART";
+        assertEquals(category,driver.findElement(By.xpath("//div[@id='left-column']/div/ul/li")).getText());
 
     }
 
@@ -79,6 +84,7 @@ public class AllSteps extends TestClass {
         ClearFilter();
         tearDown();
     }
+
     /*    @Given("^user is on homepage$")
     public void user_is_on_homepage() {
         driver = new ChromeDriver();
@@ -98,13 +104,9 @@ public class AllSteps extends TestClass {
     }
 
     @Then("^Proceed to checkout option should be displayed$")
-    public void Proceed_to_checkout_is_displayed()  {
-        // ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        // driver.switchTo().window(tabs.get(1)); //switches to pop up
-       //        String actualString = driver.findElement(By.cssSelector("css=#myModalLabel")).getText();
-//        assertTrue(actualString.contains("Product successfully added to your shopping cart"));
+    public void Proceed_to_checkout_is_displayed() {
         assertTrue(driver.findElement(By.xpath("//div[@id='blockcart-modal']/div/div/div[2]/div/div/div/div[2]/h6")).isDisplayed());
-        //    driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/button/span/i")).click();
+        //driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/button/span/i")).click();
 
     }
 
@@ -154,10 +156,18 @@ public class AllSteps extends TestClass {
         driver.findElement(By.name("continue")).click();
     }
 
+    @When("^fill data in mandatory fields on address$")
+    public void fill_data_in_mandatory_fields_on_address() {
+        driver.findElement(By.name("address1")).sendKeys("home 123");
+        driver.findElement(By.name("postcode")).sendKeys("123 45");
+        driver.findElement(By.name("city")).sendKeys("malmo");
+        driver.findElement(By.name("confirm-addresses")).click();
+    }
+
     @When("^select shipping method$")
     public void select_shipping_method() {
-        driver.findElement(By.id("delivery_option_1")).click();
-        driver.findElement(By.xpath("/html/body/section/div/section/div/div[1]/section[3]/div/div[2]/form/button")).click();
+   //     driver.findElement(By.name("delivery_option[19]")).click();
+        driver.findElement(By.name("confirmDeliveryOption")).click();
     }
 
     @When("^select payment method$")
@@ -177,8 +187,10 @@ public class AllSteps extends TestClass {
 
     @Then("^Your order is confirmed is displayed$")
     public void your_order_is_confirmed_is_displayed() {
-        String actualString = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section[1]/div/div/div/h3")).getText();
-        assertTrue(actualString.contains("Your order is confirmed"));
+        assertTrue(driver.findElement(By.xpath("/html/body/main/section/div/div/section/section[1]/div/div/div/h3")).isDisplayed());
+        
+//        String actualString = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section[1]/div/div/div/h3")).getText();
+//        assertTrue(actualString.contains("Your order is confirmed"));
 
     }
 

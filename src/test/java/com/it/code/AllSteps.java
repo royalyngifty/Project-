@@ -29,7 +29,7 @@ public class AllSteps extends TestClass {
     }
 
     @When("^User clicks on Art Category$")
-    public void artCategory() {
+    public void artCategory(){
         clickArt();
 
     }

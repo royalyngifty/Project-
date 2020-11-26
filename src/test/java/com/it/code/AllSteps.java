@@ -194,5 +194,17 @@ public class AllSteps extends TestClass {
 
     }
 
+//Check categories under Clothes (Data driven test case)
+
+    @When("^ User clicks on Clothes$")
+    public void User_clicks_Clothes() {
+        ClickElementXpath("//li[@id='category-3']/a");
+    }
+
+    @Then("Click {string} and check {string}")
+    public void gender_page_is_displayed(String Gender,String Url) {
+        ClickElementXpath(Gender);
+        CheckUrl(Url);
+    }
 
 }

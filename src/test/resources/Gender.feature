@@ -1,7 +1,7 @@
 Feature: Check feature to check the clothes header tab
 
   @testing
-  Scenario Outline: Multiple user login (Data driven test case)
+  Scenario Outline: Check categories under Clothes (Data driven test case)
 
     Given User is on the homepage
     When User clicks on Clothes

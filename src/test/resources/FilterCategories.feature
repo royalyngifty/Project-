@@ -6,7 +6,7 @@ Feature: Verify filter Categories under Clothes section
 
 
   Scenario: Verify both active filters in Categories
-    Given git 
+    Given User is on MyStore page
     And user selects Clothes section
     When user selects both filters
     Then both categories filters are shown as active

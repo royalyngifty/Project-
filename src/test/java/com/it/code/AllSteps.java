@@ -20,7 +20,7 @@ public class AllSteps extends TestClass {
 
     @Given("^User is on the homepage$")
     public void openHome(){
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.get("http://40.76.27.113:8085/en/");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -192,6 +192,56 @@ public class AllSteps extends TestClass {
 //        String actualString = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section[1]/div/div/div/h3")).getText();
 //        assertTrue(actualString.contains("Your order is confirmed"));
 
+    }
+
+    @Given("^User is shopping website homepage$")
+    public void user_is_shopping_website_homepage() {
+        driver = new ChromeDriver();
+        driver.get("http://40.76.27.113:8085/en/");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        js = (JavascriptExecutor)driver;
+        assertEquals("PrestShop",driver.getTitle());
+    }
+
+    @And("^user clicks sign in$")
+    public void user_clicks_sign_in() {
+        sign_in();
+    }
+
+    @And("^user clicks create one here$")
+    public void user_clicks_create_one_here() {
+        signup();
+    }
+
+    @And("^user check mandatory boxes$")
+    public void user_check_mandatory_boxes() {
+        selectGender();
+    }
+
+    @When("^user enters data  (.*) (.*) (.*) (.*) (.*)$")
+    public void user_enters_data_firstname_lastname_email_password_birthday(String firstname, String lastname, String email,String password, String birthday ) {
+        data(firstname, lastname, email,password,birthday);
+
+    }
+
+    @And("^user check optional boxes$")
+    public void user_check_optional_boxes() {
+
+    }
+
+    @And("^user click save$")
+    public void user_click_save() {
+        termsOfA();
+    }
+
+    @Then("^user clicks save to save new user data$")
+    public void user_clicks_save_to_save_new_user_data() {
+        save();
+        String pagesource= driver.getPageSource();
+        assertTrue(pagesource.contains("Popular Products"));
+        System.out.println("New user created and passed!");
+        tearDown();
     }
 
 //Check categories under Clothes (Data driven test case)

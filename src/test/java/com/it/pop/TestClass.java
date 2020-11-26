@@ -29,17 +29,7 @@ public class TestClass extends PageElements{
         ClickElementXpath(categoryWomen);
 
     }
-    @Test
-    //Select Categories under Clothes section
-    public void selectWomanCategory(){
-        ClickElementXpath(categoryWomen);
-    }
 
-    @Test
-    //Select Categories under Clothes section
-    public void selectManCategory(){
-        ClickElementXpath(categoryMen);
-    }
     @Test
     //Select One under Clothes section
     public void selectOneCategory(String oneCategory){

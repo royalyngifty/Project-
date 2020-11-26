@@ -30,12 +30,13 @@ public class FilterCategories extends TestClass {
 
     @When("user clicks on filter Woman in Categories")
     public void userSelectsWomenCategories() {
-        selectWomanCategory();
+       // selectWomanCategory();
+        ClickElementXpath(categoryWomen);
     }
 
     @When("user clicks on filter Men in Categories")
     public void userClicksOnFilterMenInCategories() {
-        selectManCategory();
+        ClickElementXpath(categoryMen);
     }
     @When("user selects both filters")
     public void userSelectsBothFilters() {

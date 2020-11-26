@@ -31,6 +31,16 @@ public class BaseClass {
     public static String linkWomen = "http://40.76.27.113:8085/en/5-women";
 
 
+    public static String signin ="_desktop_user_info";
+    public static String fNa= "firstname";
+    public static String lNa= "lastname";
+    public static String  emelj= "email";
+    public static String  pword="password";
+    public static String  birthD= "birthday";
+    public static String terms= "/html/body/main/section/div/div/section/section/section/form/section/div[9]/div[1]/span";
+    public static String sav="submitCreate";
+
+
     @BeforeAll
     public static void setUp(){
         if(browser.equalsIgnoreCase("firefox")){

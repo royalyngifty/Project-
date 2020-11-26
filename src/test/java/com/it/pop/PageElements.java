@@ -50,5 +50,36 @@ public class PageElements extends BaseClass{
     }
 
 
+    public static void sign_in(){
+        driver.findElement(By.id(signin)).click();
+    }
+    public static void signup(){
+        driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div/a")).click();
+    }
+    public static void selectGender(){
+        driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/section/form/section/div[1]/div[1]/label[2]/span/input")).click();
+    }
+
+
+    public void  data(String firstname, String lastname,String e_mail, String password,String dob) {
+        driver.findElement(By.name(fNa)).sendKeys(firstname);
+        driver.findElement(By.name(lNa)).sendKeys(lastname);
+        driver.findElement(By.name(emelj)).sendKeys(e_mail);
+        driver.findElement(By.name(pword)).sendKeys(password);
+        driver.findElement(By.name(birthD)).sendKeys(dob);
+    }
+
+    public void termsOfA(){
+        driver.findElement(By.xpath(terms)).click();
+    }
+    public void save(){
+        driver.findElement(By.name(sav)).submit();
+    }
+
+
+
+
+
+
 
 }

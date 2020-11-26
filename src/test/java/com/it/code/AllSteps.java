@@ -21,11 +21,7 @@ public class AllSteps extends TestClass {
 
     @Given("^User is on the homepage$")
     public void openHome(){
-        driver = new ChromeDriver();
-        driver.get("http://40.76.27.113:8085/en/");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        js = (JavascriptExecutor)driver;
+        setUp();
         assertEquals("PrestShop",driver.getTitle());
     }
 

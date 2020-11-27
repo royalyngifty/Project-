@@ -65,7 +65,7 @@ public class PageElements extends BaseClass{
     }
 
     public void termsOfA(){
-        driver.findElement(By.xpath(terms)).click();
+        driver.findElement(By.name(terms)).click();
     }
     public void save(){
         driver.findElement(By.name(sav)).submit();

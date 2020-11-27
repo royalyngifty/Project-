@@ -216,11 +216,24 @@ public class AllSteps extends TestClass {
         selectGender();
     }
 
-    @When("^user enters data  (.*) (.*) (.*) (.*) (.*)$")
-    public void user_enters_data_firstname_lastname_email_password_birthday(String firstname, String lastname, String email,String password, String birthday ) {
-        data(firstname, lastname, email,password,birthday);
+//    @When("^user enters data $")
+//    public void user_enters_data_firstname_lastname_email_password_birthday() {
+//
+//
+//    }
 
+    @When("user enters data")
+    public void user_enters_data() {
+        String firstname="Uwa";
+        String lastname="JJ";
+        String email = getSaltString()+"@iths.se";
+        String password="password";
+        String birthday="05/31/1970";
+
+        data(firstname, lastname, email,password,birthday);
+        throw new io.cucumber.java.PendingException();
     }
+
 
     @And("^user check optional boxes$")
     public void user_check_optional_boxes() {
@@ -248,6 +261,12 @@ public class AllSteps extends TestClass {
 
     @When("^User Opens Languague Options$")
     public void user_opens_languague_options()  {
+
+
+        selectOptionShow();
+
+    }
+
     @When("^User clicks on Clothes$")
     public void click_clothes(){
         ClickElementXpath("//div[2]/div/ul/li/a");
@@ -258,10 +277,6 @@ public class AllSteps extends TestClass {
         ClickElementXpath(gender);
         CheckUrl(url);
         tearDown();
-
-    }
-
-        selectOptionShow();
 
     }
 

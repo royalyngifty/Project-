@@ -6,10 +6,13 @@ Feature: Create new user
     And user clicks sign in
     And user clicks create one here
     And user check mandatory boxes
-    When user enters data all steps page
-    And user check optional boxes
+    When user enters data
+#    And user check optional boxes
     And user click save
     Then user clicks save to save new user data
+
+
+
 
 
 

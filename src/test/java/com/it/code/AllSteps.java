@@ -13,7 +13,6 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AllSteps extends TestClass {
@@ -22,16 +21,12 @@ public class AllSteps extends TestClass {
 
     @Given("^User is on the homepage$")
     public void openHome(){
-        driver = new ChromeDriver();
-        driver.get("http://40.76.27.113:8085/en/");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        js = (JavascriptExecutor)driver;
+        setUp();
         assertEquals("PrestShop",driver.getTitle());
     }
 
     @When("^User clicks on Art Category$")
-    public void artCategory() {
+    public void artCategory(){
         clickArt();
 
     }
@@ -87,7 +82,7 @@ public class AllSteps extends TestClass {
         tearDown();
     }
 
-    /*    @Given("^user is on homepage$")
+     /*   @Given("^user is on homepage$")
     public void user_is_on_homepage() {
         driver = new ChromeDriver();
         driver.get("http://40.76.27.113:8085/en/");
@@ -253,6 +248,18 @@ public class AllSteps extends TestClass {
 
     @When("^User Opens Languague Options$")
     public void user_opens_languague_options()  {
+    @When("^User clicks on Clothes$")
+    public void click_clothes(){
+        ClickElementXpath("//div[2]/div/ul/li/a");
+        assertEquals("Clothes",driver.getTitle());
+    }
+    @Then("Select {string} and verify {string}")
+    public void click_to_verify(String gender,String url){
+        ClickElementXpath(gender);
+        CheckUrl(url);
+        tearDown();
+
+    }
 
         selectOptionShow();
 

@@ -48,7 +48,7 @@ public class BaseClass {
     }
     @AfterEach
     public void SelectHomeIcon(){
-        driver.findElement(By.id("logo")).click();
+        driver.findElement(By.xpath("//img[@alt='PrestShop']")).click();
     }
 
     @AfterAll

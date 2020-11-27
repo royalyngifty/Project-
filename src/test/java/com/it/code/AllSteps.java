@@ -81,7 +81,7 @@ public class AllSteps extends TestClass {
         tearDown();
     }
 
-    /*    @Given("^user is on homepage$")
+     /*   @Given("^user is on homepage$")
     public void user_is_on_homepage() {
         driver = new ChromeDriver();
         driver.get("http://40.76.27.113:8085/en/");
@@ -239,18 +239,18 @@ public class AllSteps extends TestClass {
         System.out.println("New user created and passed!");
         tearDown();
     }
+    @When("^User clicks on Clothes$")
+    public void click_clothes(){
+        ClickElementXpath("//div[2]/div/ul/li/a");
+        assertEquals("Clothes",driver.getTitle());
+    }
+    @Then("Select {string} and verify {string}")
+    public void click_to_verify(String gender,String url){
+        ClickElementXpath(gender);
+        CheckUrl(url);
+        tearDown();
 
-//Check categories under Clothes (Data driven test case)
-
-    @When("^ User clicks on Clothes$")
-    public void User_clicks_Clothes() {
-        ClickElementXpath("//li[@id='category-3']/a");
     }
 
-    @Then("Click {string} and check {string}")
-    public void gender_page_is_displayed(String Gender,String Url) {
-        ClickElementXpath(Gender);
-        CheckUrl(Url);
-    }
 
 }

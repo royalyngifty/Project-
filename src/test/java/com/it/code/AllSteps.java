@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -102,34 +104,33 @@ public class AllSteps extends TestClass {
 
     @Then("^Proceed to checkout option should be displayed$")
     public void Proceed_to_checkout_is_displayed() {
-        assertTrue(driver.findElement(By.xpath("//div[@id='blockcart-modal']/div/div/div[2]/div/div/div/div[2]/h6")).isDisplayed());
-        //driver.findElement(By.xpath("/html/body/div[1]/div/div/div[1]/button/span/i")).click();
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h4[@id='myModalLabel']")));
+        assertEquals("\uE876 Product successfully added to your shopping cart",driver.findElement(By.xpath("//h4[@id='myModalLabel']")).getText());
+        ClickElementXpath("//button/span/i");
 
     }
 
     @Given("^user has a product in the cart$")
     public void user_has_a_product_in_the_cart() {
-        String actualString = driver.findElement(By.xpath("/html/body/main/header/nav/div/div/div[1]/div[2]/div[3]/div/div/a/span[2]")).getText();
+        String actualString = driver.findElement(By.cssSelector("span.cart-products-count")).getText();
         assertTrue(actualString.contains("(1)"));
 
     }
 
     @When("^user clicks on the cart icon$")
     public void user_clicks_on_cart_the_icon() {
-        driver.findElement(By.xpath("/html/body/main/header/nav/div/div/div[1]/div[2]/div[3]/div/div/a")).click();
+        driver.findElement(By.xpath("//div[@id='_desktop_cart']/div/div/a/span")).click();
     }
 
     @Then("^shopping cart page is displayed$")
     public void shopping_cart_page_is_displayed() {
-        String url = driver.getCurrentUrl();
-        String currentUrl = "http://40.76.27.113:8085/en/cart?action=show";
-        assertEquals(url, currentUrl);
-
+        CheckUrl("http://40.76.27.113:8085/en/cart?action=show");
     }
 
     @Given("^user is shopping cart page$")
-    public void user_is_personal_information_page() {
-        driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div/div[2]/div/div/a")).click();
+    public void user_is_on_cart() {
+        CheckUrl("http://40.76.27.113:8085/en/cart?action=show");
 
     }
 
@@ -185,9 +186,7 @@ public class AllSteps extends TestClass {
     @Then("^Your order is confirmed is displayed$")
     public void your_order_is_confirmed_is_displayed() {
         assertTrue(driver.findElement(By.xpath("/html/body/main/section/div/div/section/section[1]/div/div/div/h3")).isDisplayed());
-        
-//        String actualString = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section[1]/div/div/div/h3")).getText();
-//        assertTrue(actualString.contains("Your order is confirmed"));
+        tearDown();
 
     }
 

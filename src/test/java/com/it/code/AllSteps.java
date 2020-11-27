@@ -106,7 +106,7 @@ public class AllSteps extends TestClass {
     public void Proceed_to_checkout_is_displayed() {
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h4[@id='myModalLabel']")));
-        assertEquals("\uE876 Product successfully added to your shopping cart",driver.findElement(By.xpath("//h4[@id='myModalLabel']")).getText());
+        assertEquals("\uE876Product successfully added to your shopping cart",driver.findElement(By.xpath("//h4[@id='myModalLabel']")).getText());
         ClickElementXpath("//button/span/i");
 
     }

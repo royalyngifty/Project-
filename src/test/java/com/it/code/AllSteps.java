@@ -276,7 +276,30 @@ public class AllSteps extends TestClass {
         ClickElementXpath(gender);
         assertEquals(value,driver.findElement(By.xpath("//div[@id=\"js-product-list-header\"]/div/h1")).getText());
         tearDown();
+    }
 
+    @When("^User clicks on Accessories$")
+    public void click_accessories(){
+        ClickElementXpath("//div[2]/div/ul/li[2]/a");
+        assertEquals("Accessories",driver.getTitle());
+    }
+    @Then("Select {string} and check {string}")
+    public void click_to_check(String item,String text){
+        ClickElementXpath(item);
+        assertEquals(text,driver.findElement(By.xpath("//div[@id=\"js-product-list-header\"]/div/h1")).getText());
+        tearDown();
+    }
+
+    @When("^User clicks on Art$")
+    public void click_art(){
+        //ClickElementXpath("//a[contains(text(),'Art')]");
+        //assertEquals("Art",driver.getTitle());
+        clickArt();
+    }
+    @Then("^Art page is opened$")
+    public void art_page_opened(){
+        assertEquals("ART",driver.findElement(By.xpath("//*[@id=\"js-product-list-header\"]/div/h1")).getText());
+        tearDown();
     }
 
     @And("^User selects swedish language$")

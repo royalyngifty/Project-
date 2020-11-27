@@ -71,9 +71,23 @@ public class PageElements extends BaseClass{
     }
 
 
+    public void selectOptionShow()  {
+        driver.findElement(By.cssSelector("#_desktop_language_selector > div > div > button > i")).click();
 
+    }
 
+    public void selectOptionSwedish(){
+        js=(JavascriptExecutor) driver; ////*[@id="_desktop_language_selector"]/div/div/ul/li[2]
+        driver.findElement(By.xpath("//*[@id=\"_desktop_language_selector\"]/div/div/ul/li[2]/a")).click();
 
+    }
+
+    public void selectOptionEnglish(){
+
+        js=(JavascriptExecutor) driver;
+        driver.findElement(By.xpath("//*[@id=\"_desktop_language_selector\"]/div/div/ul/li[1]")).click();
+
+    }
 
 
 }

@@ -17,7 +17,7 @@ public class LinksInClothesSection extends TestClass {
         assertEquals(category, driver.findElement(By.xpath("//*[@id=\"js-product-list-header\"]/div/h1")).getText());
         //verify link when Clothes is selected
         assertEquals(linkClothes,driver.getCurrentUrl());
-        tearDownDriver();
+        tearDown();
     }
 
     @When("selects link Men under Clothes section")
@@ -28,22 +28,9 @@ public class LinksInClothesSection extends TestClass {
     @Then("page with query parameter Men is opened")
     public void pageWithQueryParameterMenIsOpened() {
         assertEquals(linkMen,driver.getCurrentUrl());
-        tearDownDriver();
+        tearDown();
 
     }
-/*
-    @When("^selects ([^\"]*) under Clothes section$")
-    public void userSelectsGenderUnderClothesSection(String genderlink) {
-            ClickElementXpath(genderlink);
-
-    }
-
-    @Then("^([^\"]*) is opened$")
-    public void genderpageIsOpened(String genderPage) {
-        assertEquals(genderPage,driver.getCurrentUrl());
-        tearDownDriver();
-    }
-*/
 
     @When("selects link Women under Clothes section")
     public void selectsWoMenLinkUnderClothesSection() {
@@ -53,7 +40,7 @@ public class LinksInClothesSection extends TestClass {
     @Then("page with query parameter Women is opened")
     public void pageWithQueryParameterWoMenIsOpened() {
         assertEquals(linkWomen,driver.getCurrentUrl());
-        tearDownDriver();
+        tearDown();
 
     }
 

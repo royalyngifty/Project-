@@ -49,6 +49,10 @@ public class PageElements extends BaseClass{
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//div[2]/div[2]/div/button")));
     }
 
+    public boolean waitForActiveFilter(String activeFilter){
+        boolean actFilter = driver.findElement(By.xpath(activeFilter)).isDisplayed();
+        return actFilter;
+    }
 
     public static void sign_in(){
         driver.findElement(By.id(signin)).click();

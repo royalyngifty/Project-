@@ -53,7 +53,7 @@ public class FilterCategories extends TestClass {
         assertEquals(category, driver.findElement(By.xpath("//*[@id=\"left-column\"]/div[1]/ul/li[1]/a")).getText());
 
         ClearFilter();
-        tearDownDriver();
+        tearDown();
     }
 
     @Then("Woman filter is shown as active")
@@ -64,7 +64,7 @@ public class FilterCategories extends TestClass {
         assertEquals(category, driver.findElement(By.xpath("//*[@id=\"left-column\"]/div[1]/ul/li[1]/a")).getText());
 
         ClearFilter();
-        tearDownDriver();
+        tearDown();
     }
     @Then("Men filter is shown as active")
     public void menFilterIsShownAsActive() {
@@ -74,7 +74,7 @@ public class FilterCategories extends TestClass {
         assertEquals(category, driver.findElement(By.xpath("//*[@id=\"left-column\"]/div[1]/ul/li[1]/a")).getText());
 
         ClearFilter();
-        tearDownDriver();
+        tearDown();
     }
     @And("^user selects ([^\"]*) in Categories$")
     public void userSelectsValueInCategories(String oneCategory) {
@@ -85,7 +85,7 @@ public class FilterCategories extends TestClass {
     @Then("^([^\"]*) with query parameter is shown$")
     public void linkWithQueryParameterIsShown(String link) {
         assertEquals(link,driver.getCurrentUrl());
-        tearDownDriver();
+        tearDown();
     }
 
 }

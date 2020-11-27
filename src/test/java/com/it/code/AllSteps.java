@@ -2,6 +2,7 @@ package com.it.code;
 
 import com.it.pop.TestClass;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -12,7 +13,6 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AllSteps extends TestClass {
@@ -21,16 +21,12 @@ public class AllSteps extends TestClass {
 
     @Given("^User is on the homepage$")
     public void openHome(){
-        driver = new ChromeDriver();
-        driver.get("http://40.76.27.113:8085/en/");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        js = (JavascriptExecutor)driver;
+        setUp();
         assertEquals("PrestShop",driver.getTitle());
     }
 
     @When("^User clicks on Art Category$")
-    public void artCategory() {
+    public void artCategory(){
         clickArt();
 
     }
@@ -86,7 +82,7 @@ public class AllSteps extends TestClass {
         tearDown();
     }
 
-    /*    @Given("^user is on homepage$")
+     /*   @Given("^user is on homepage$")
     public void user_is_on_homepage() {
         driver = new ChromeDriver();
         driver.get("http://40.76.27.113:8085/en/");
@@ -220,11 +216,24 @@ public class AllSteps extends TestClass {
         selectGender();
     }
 
-    @When("^user enters data  (.*) (.*) (.*) (.*) (.*)$")
-    public void user_enters_data_firstname_lastname_email_password_birthday(String firstname, String lastname, String email,String password, String birthday ) {
-        data(firstname, lastname, email,password,birthday);
+//    @When("^user enters data $")
+//    public void user_enters_data_firstname_lastname_email_password_birthday() {
+//
+//
+//    }
 
+    @When("user enters data")
+    public void user_enters_data() {
+        String firstname="Uwa";
+        String lastname="JJ";
+        String email = getSaltString()+"@iths.se";
+        String password="password";
+        String birthday="05/31/1970";
+
+        data(firstname, lastname, email,password,birthday);
+        throw new io.cucumber.java.PendingException();
     }
+
 
     @And("^user check optional boxes$")
     public void user_check_optional_boxes() {
@@ -243,6 +252,60 @@ public class AllSteps extends TestClass {
         assertTrue(pagesource.contains("Popular Products"));
         System.out.println("New user created and passed!");
         tearDown();
+    }
+    @Given("^User is on prestshop homepage$")
+    public void user_is_on_prestshop_homepage() {
+
+        setUp();
+    }
+
+    @When("^User Opens Languague Options$")
+    public void user_opens_languague_options()  {
+
+
+        selectOptionShow();
+
+    }
+
+    @When("^User clicks on Clothes$")
+    public void click_clothes(){
+        ClickElementXpath("//div[2]/div/ul/li/a");
+        assertEquals("Clothes",driver.getTitle());
+    }
+    @Then("Select {string} and verify {string}")
+    public void click_to_verify(String gender,String url){
+        ClickElementXpath(gender);
+        CheckUrl(url);
+        tearDown();
+
+    }
+
+    @And("^User selects swedish language$")
+    public void user_selects_swedish_language() throws InterruptedException {
+
+        Thread.sleep(3000);
+
+        selectOptionSwedish();
+    }
+    @Then("^Webage language changes to Swedish$")
+    public void webage_language_changes_to_swedish() {
+        String Url="http://40.76.27.113:8085/sv/";
+        String expected_url= driver.getCurrentUrl();
+        Assert.assertEquals(expected_url,Url);
+    }
+    @And("^User selects english language$")
+    public void user_selects_english_language() throws InterruptedException {
+        selectOptionShow();
+        Thread.sleep(3000);
+        selectOptionEnglish();
+
+    }
+
+    @Then("^Webpage language is English$")
+    public void webpage_language_is_english() {
+        String Url="http://40.76.27.113:8085/en/";
+        String expected_url= driver.getCurrentUrl();
+        Assert.assertEquals(expected_url,Url);
     }
 
 }

@@ -22,21 +22,21 @@ Feature: Verify filter Color under Clothes section
    When user selects both values in filter Color
    Then both color filters are shown as active
 
-  Scenario: Verify black Color filter in Clothes section for page Man
-    Given User is on MyStore page
-    And user selects Clothes section
-    And selects link Men under Clothes section
-    When user Men selects Black color in filter Color
-    Then page with query parameter Men and black color is opened
-    And Black is active filter
-
-  Scenario: Verify both Color filters in Clothes section for page Man
-    Given User is on MyStore page
-    And user selects Clothes section
-    And selects link Men under Clothes section
-    When user Men selects both values in filter Color
-    Then page with query parameter Men and colors is opened
-    And both color filters are shown as active
+#  Scenario: Verify black Color filter in Clothes section for page Man
+#   Given User is on MyStore page
+#   And user selects Clothes section
+#   And selects link Men under Clothes section
+#   When user Men selects Black color in filter Color
+#   Then page with query parameter Men and black color is opened
+#   And Black is active filter
+#
+# Scenario: Verify both Color filters in Clothes section for page Man
+#   Given User is on MyStore page
+#   And user selects Clothes section
+#   And selects link Men under Clothes section
+#   When user Men selects both values in filter Color
+#   Then page with query parameter Men and colors is opened
+#   And both color filters are shown as active
 #
 #
 # Scenario Outline: Verify one by one value for filter Color in Clothes section for page Man

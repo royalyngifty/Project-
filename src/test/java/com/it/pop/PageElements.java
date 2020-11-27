@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -64,10 +65,23 @@ public class PageElements extends BaseClass{
     }
 
     public void termsOfA(){
-        driver.findElement(By.xpath(terms)).click();
+        driver.findElement(By.name(terms)).click();
     }
     public void save(){
         driver.findElement(By.name(sav)).submit();
+    }
+
+    protected String getSaltString() {
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 18) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+
     }
 
 

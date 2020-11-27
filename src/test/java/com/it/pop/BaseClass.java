@@ -24,7 +24,7 @@ public class BaseClass {
     public static String  emelj= "email";
     public static String  pword="password";
     public static String  birthD= "birthday";
-    public static String terms= "/html/body/main/section/div/div/section/section/section/form/section/div[9]/div[1]/span";
+    public static String terms= "psgdpr";
     public static String sav="submitCreate";
 
 

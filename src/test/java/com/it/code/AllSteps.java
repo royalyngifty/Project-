@@ -2,6 +2,7 @@ package com.it.code;
 
 import com.it.pop.TestClass;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -239,6 +240,14 @@ public class AllSteps extends TestClass {
         System.out.println("New user created and passed!");
         tearDown();
     }
+    @Given("^User is on prestshop homepage$")
+    public void user_is_on_prestshop_homepage() {
+
+        setUp();
+    }
+
+    @When("^User Opens Languague Options$")
+    public void user_opens_languague_options()  {
     @When("^User clicks on Clothes$")
     public void click_clothes(){
         ClickElementXpath("//div[2]/div/ul/li/a");
@@ -252,5 +261,36 @@ public class AllSteps extends TestClass {
 
     }
 
+        selectOptionShow();
+
+    }
+
+    @And("^User selects swedish language$")
+    public void user_selects_swedish_language() throws InterruptedException {
+
+        Thread.sleep(3000);
+
+        selectOptionSwedish();
+    }
+    @Then("^Webage language changes to Swedish$")
+    public void webage_language_changes_to_swedish() {
+        String Url="http://40.76.27.113:8085/sv/";
+        String expected_url= driver.getCurrentUrl();
+        Assert.assertEquals(expected_url,Url);
+    }
+    @And("^User selects english language$")
+    public void user_selects_english_language() throws InterruptedException {
+        selectOptionShow();
+        Thread.sleep(3000);
+        selectOptionEnglish();
+
+    }
+
+    @Then("^Webpage language is English$")
+    public void webpage_language_is_english() {
+        String Url="http://40.76.27.113:8085/en/";
+        String expected_url= driver.getCurrentUrl();
+        Assert.assertEquals(expected_url,Url);
+    }
 
 }

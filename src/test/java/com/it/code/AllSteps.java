@@ -273,9 +273,9 @@ public class AllSteps extends TestClass {
         assertEquals("Clothes",driver.getTitle());
     }
     @Then("Select {string} and verify {string}")
-    public void click_to_verify(String gender,String url){
+    public void click_to_verify(String gender,String value){
         ClickElementXpath(gender);
-        CheckUrl(url);
+        assertEquals(value,driver.findElement(By.xpath("//div[@id=\"js-product-list-header\"]/div/h1")).getText());
         tearDown();
 
     }

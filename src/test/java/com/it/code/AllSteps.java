@@ -230,7 +230,7 @@ public class AllSteps extends TestClass {
         String birthday="05/31/1970";
 
         data(firstname, lastname, email,password,birthday);
-        throw new io.cucumber.java.PendingException();
+
     }
 
 
@@ -305,6 +305,7 @@ public class AllSteps extends TestClass {
         String Url="http://40.76.27.113:8085/en/";
         String expected_url= driver.getCurrentUrl();
         Assert.assertEquals(expected_url,Url);
+        tearDown();
     }
 
 }

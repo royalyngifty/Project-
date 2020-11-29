@@ -22,32 +22,22 @@ Feature: Verify filter Color under Clothes section
    When user selects both values in filter Color
    Then both color filters are shown as active
 
-#  Scenario: Verify black Color filter in Clothes section for page Man
-#   Given User is on MyStore page
-#   And user selects Clothes section
-#   And selects link Men under Clothes section
-#   When user Men selects Black color in filter Color
-#   Then page with query parameter Men and black color is opened
-#   And Black is active filter
-#
-# Scenario: Verify both Color filters in Clothes section for page Man
-#   Given User is on MyStore page
-#   And user selects Clothes section
-#   And selects link Men under Clothes section
-#   When user Men selects both values in filter Color
-#   Then page with query parameter Men and colors is opened
-#   And both color filters are shown as active
-#
-#
-# Scenario Outline: Verify one by one value for filter Color in Clothes section for page Man
-#   Given User is on MyStore page
-#   And user selects Clothes section
-#   When user selects <gender>
-#   And user selects <value> in filter Color
-#   Then <genderPage> is opened
-#   And active filter <value> is shown
-#
-#   Examples:
-#     | gender | value | genderPage                        |
-#     | Men    | White | http://40.76.27.113:8085/en/4-men?q=Color-White |
-#     | Men    | Black | http://40.76.27.113:8085/en/4-men?q=Color-Black |
+ Scenario Outline: Verify one by one value for filter Color in Clothes section for page Man
+   Given User is on MyStore page
+   And user selects Clothes section
+   When user selects Men link under Clothes section
+   And user selects filter <colorValue> under Clothes Men
+   Then Clothes Men <genderPage> is opened with color query parameter
+   And  active filter <activeValue> is shown
+
+   Examples:
+     | colorValue                            | genderPage                                      | activeValue                            |
+     | //section[2]/ul/li[1]/label/span/span | http://40.76.27.113:8085/en/4-men?q=Color-White | //section/section/div[2]/section/ul/li |
+     | //section[2]/ul/li[2]/label/span/span | http://40.76.27.113:8085/en/4-men?q=Color-Black | //div[2]/section/ul/li[2]              |
+
+  Scenario: Verify filter with both colors under Clothes section for page Man
+    Given User is on MyStore page
+    And user selects Clothes section
+    And user selects Men link under Clothes section
+    When user selects both color values under Clothes section for page Men
+    Then Clothes Men page is opened with two color parameters

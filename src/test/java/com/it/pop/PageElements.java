@@ -50,6 +50,9 @@ public class PageElements extends BaseClass{
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("//div[2]/div[2]/div/button")));
     }
 
+    public  void waitToRemoveClearAll(){
+        new WebDriverWait(driver, 20).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[2]/div[2]/div/button")));
+    }
     public boolean waitForActiveFilter(String activeFilter){
         boolean actFilter = driver.findElement(By.xpath(activeFilter)).isDisplayed();
         return actFilter;

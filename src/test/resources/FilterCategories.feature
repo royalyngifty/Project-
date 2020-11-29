@@ -26,11 +26,11 @@ Feature: Verify filter Categories under Clothes section
   Scenario Outline: Verify Links after filter is applied
     Given User is on MyStore page
     And user selects Clothes section
-    When user selects <oneCategory> in Categories
+    When user selects <filter> in Categories
     Then <link> with query parameter is shown
 
     Examples:
-      | oneCategory                           | link                                                     |
+      | filter                           | link                                                     |
       | //label/span/span                     | http://40.76.27.113:8085/en/3-clothes?q=Categories-Men   |
       | //section[1]/ul/li[2]/label/span/span | http://40.76.27.113:8085/en/3-clothes?q=Categories-Women |
 

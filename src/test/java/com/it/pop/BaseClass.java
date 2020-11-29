@@ -28,12 +28,19 @@ public class BaseClass {
 
     public static String filterColorWhite = "//section/section/div[2]/section/ul/li";
     public static String filterColorBlack = "//div[2]/section/ul/li[2]";
+    public static String filterSizeS = "//div[2]/section/section/div[2]/section/ul/li";
+    public static String filterSizeM = "//div[2]/section/section/div[2]/section/ul/li[2]";
+    public static String filterSizeL = "//div[2]/section/section/div[2]/section/ul/li[3]";
+    public static String filterSizeXL = "//div[2]/section/section/div[2]/section/ul/li[4]";
+
     public static String colorWhite = "//ul/li[1]/label/span/span";
     public static String clothesWhite = "//section[3]/ul/li[1]/label/span/span";
     public static String clothesBlack = "//section[3]/ul/li[2]/label/span/span";
     public static String colorBlack ="//section[2]/ul/li[2]/label/span/span";
     public static String clothesSection = "//*[@id=\"category-3\"]/a";
     public static String category = "CLOTHES";
+    public static String clrAllBttn = "//div[1]/div[2]/div[2]/div/button";
+
     public static String linkClothes = "http://40.76.27.113:8085/en/3-clothes";
     public static String linkMen = "http://40.76.27.113:8085/en/4-men";
     public static String linkWomen = "http://40.76.27.113:8085/en/5-women";
@@ -41,6 +48,8 @@ public class BaseClass {
     public static String linkMenWhite = "http://40.76.27.113:8085/en/4-men?q=Color-White";
     public static String linkMenWhiteBlack = "http://40.76.27.113:8085/en/4-men?q=Color-White-Black";
 
+    public static String linkClothesMen = "//ul/li[2]/ul/li[1]/a";
+    public static String linkClothesWomen = "//ul/li[2]/ul/li[2]/a";
 
     public static String signin ="_desktop_user_info";
     public static String fNa= "firstname";

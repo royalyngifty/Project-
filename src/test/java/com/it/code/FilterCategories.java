@@ -25,7 +25,7 @@ public class FilterCategories extends TestClass {
 
     @And("user selects Clothes section")
     public void userSelectsClothesSection() {
-        ClickElementXpath("//*[@id=\"category-3\"]/a");
+        ClickElementXpath(clothesSection);
     }
 
     @When("user clicks on filter Woman in Categories")
@@ -52,7 +52,7 @@ public class FilterCategories extends TestClass {
 
         assertEquals(category, driver.findElement(By.xpath("//*[@id=\"left-column\"]/div[1]/ul/li[1]/a")).getText());
 
-        ClearFilter();
+  //      ClearFilter();
         tearDown();
     }
 
@@ -63,7 +63,7 @@ public class FilterCategories extends TestClass {
 
         assertEquals(category, driver.findElement(By.xpath("//*[@id=\"left-column\"]/div[1]/ul/li[1]/a")).getText());
 
-        ClearFilter();
+    //    ClearFilter();
         tearDown();
     }
     @Then("Men filter is shown as active")
@@ -73,18 +73,19 @@ public class FilterCategories extends TestClass {
 
         assertEquals(category, driver.findElement(By.xpath("//*[@id=\"left-column\"]/div[1]/ul/li[1]/a")).getText());
 
-        ClearFilter();
+    //    ClearFilter();
         tearDown();
     }
     @And("^user selects ([^\"]*) in Categories$")
-    public void userSelectsValueInCategories(String oneCategory) {
-        selectOneCategory(oneCategory);
+    public void userSelectsValueInCategories(String filter) {
+        selectOneCategory(filter);
         waitForClearAllButtn();
     }
 
     @Then("^([^\"]*) with query parameter is shown$")
     public void linkWithQueryParameterIsShown(String link) {
-        assertEquals(link,driver.getCurrentUrl());
+ //       assertEquals(link,driver.getCurrentUrl());
+        verifyPage(link);
         tearDown();
     }
 

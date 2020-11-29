@@ -67,9 +67,26 @@ public class TestClass extends PageElements{
 
     //Select One under Clothes section
     public void selectOneCategory(String oneCategory){
-        goToClothesSection();
+ //       goToClothesSection();
         ClickElementXpath(oneCategory);
         driver.manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
     }
 
+    @Test
+    public void selectColorUnderClothesMen(String menClothesColor){
+        ClickElementXpath(menClothesColor);
+        waitForClearAllButtn();
+    }
+
+
+    @Test
+    public void removeClearAllUnderClothes(){
+        ClickElementXpath(clrAllBttn);
+        waitToRemoveClearAll();
+    }
+
+    @Test
+    public void verifyPage(String linkUnderTest){
+        assertEquals(linkUnderTest, driver.getCurrentUrl());
+    }
 }

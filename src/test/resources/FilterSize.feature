@@ -1,66 +1,56 @@
-#Feature: Verify filter Size under Clothes section
-#
-#  In order to test functionality of filter Size
-#  As a visitor on the page
-#  I want to be able to apply filters under Clothes section and related pages
+Feature: Verify filter Size under Clothes section
 
-#  Scenario Outline: Verify one by one value for filter Size in Categories
-#    Given user is on the My Store page
-#    And user selects Clothes section
-#    When user selects <value> in filter Size
-#    Then active filter <value> is shown
+  In order to test functionality of filter Size
+  As a visitor on the page
+  I want to be able to apply filters under Clothes section and related pages
 
-#    Examples:
-#      | value |
-#      | S     |
-#      | M     |
-#      | L     |
-#      | XL    |
+  Scenario Outline: Verify one by one value for filter Size in Clothes section
+    Given User is on MyStore page
+    And user selects Clothes section
+    When user selects <filter> in Categories
+    Then <link> with query parameter is shown
 
-#  Scenario Outline: Verify combinations of values for filter Size in Categories
-#    Given user is on the My Store page
-#    And user selects Clothes section
-#    When user selects <number> of the options in Size filter
-#    Then <number> active filters are shown
+    Examples:
+      | filter                                | link                                            |
+      | //section[2]/ul/li[1]/label/span/span | http://40.76.27.113:8085/en/3-clothes?q=Size-S  |
+      | //section[2]/ul/li[2]/label/span/span | http://40.76.27.113:8085/en/3-clothes?q=Size-M  |
+      | //section[2]/ul/li[3]/label/span/span | http://40.76.27.113:8085/en/3-clothes?q=Size-L  |
+      | //section[2]/ul/li[4]/label/span/span | http://40.76.27.113:8085/en/3-clothes?q=Size-XL |
 
-#    Examples:
-#      | number |
-#      | 2      |
-#      | 3      |
-#      | 4      |
+  Scenario Outline: Verify two values for filter Size in Categories
+   Given User is on MyStore page
+   And user selects Clothes section
+   When user selects two filters <filter1> and <filter2> under Categories Size page
+   Then <link> and active filters <actFilter1> and <actFilter2> are shown
+   Examples:
+     | filter1                               | filter2                               | link                                              | actFilter1                                       | actFilter2                                       |
+     | //section[2]/ul/li[1]/label/span/span | //section[2]/ul/li[2]/label/span/span | http://40.76.27.113:8085/en/3-clothes?q=Size-S-M  | //div[2]/section/section/div[2]/section/ul/li[1] | //div[2]/section/section/div[2]/section/ul/li[2] |
+     | //section[2]/ul/li[1]/label/span/span | //ul/li[3]/label/span/span            | http://40.76.27.113:8085/en/3-clothes?q=Size-S-L  | //div[2]/section/section/div[2]/section/ul/li[1] | //div[2]/section/section/div[2]/section/ul/li[2] |
+     | //section[2]/ul/li[2]/label/span/span | //section[2]/ul/li[4]/label/span/span | http://40.76.27.113:8085/en/3-clothes?q=Size-M-XL | //div[2]/section/section/div[2]/section/ul/li[1] | //div[2]/section/section/div[2]/section/ul/li[2] |
+     | //section[2]/ul/li[3]/label/span/span | //section[2]/ul/li[4]/label/span/span | http://40.76.27.113:8085/en/3-clothes?q=Size-L-XL | //div[2]/section/section/div[2]/section/ul/li[1] | //div[2]/section/section/div[2]/section/ul/li[2] |
 
-#  Scenario Outline: Verify one by one value for filter Size in Clothes section for pages Men and Women
-#    Given user is on the My Store page
-#    And user selects Clothes section
-#    And user selects <gender>
-#    When user selects <value> in filter Size
-#    Then <genderPage> is opened
-#    And active filter <value> is shown
+  Scenario Outline: Verify two values for filter Size in Categories Man page
+    Given User is on MyStore page
+    And user selects Clothes section
+    And user selects Men link under Clothes section
+    When user selects two filters <filter1> and <filter2> under Categories Size page
+    Then <link> and active filters <actFilter1> and <actFilter2> are shown
+    Examples:
+      | filter1                               | filter2                               | link                                          | actFilter1                                       | actFilter2                                       |
+      | //section[1]/ul/li[1]/label/span/span | //section[1]/ul/li[2]/label/span/span | http://40.76.27.113:8085/en/4-men?q=Size-S-M  | //div[2]/section/section/div[2]/section/ul/li[1] | //div[2]/section/section/div[2]/section/ul/li[2] |
+      | //section[1]/ul/li[1]/label/span/span | //section[1]/ul/li[3]/label/span/span | http://40.76.27.113:8085/en/4-men?q=Size-S-L  | //div[2]/section/section/div[2]/section/ul/li[1] | //div[2]/section/section/div[2]/section/ul/li[2] |
+      | //section[1]/ul/li[2]/label/span/span | //section[1]/ul/li[4]/label/span/span | http://40.76.27.113:8085/en/4-men?q=Size-M-XL | //div[2]/section/section/div[2]/section/ul/li[1] | //div[2]/section/section/div[2]/section/ul/li[2] |
+      | //section[1]/ul/li[3]/label/span/span | //section[1]/ul/li[4]/label/span/span | http://40.76.27.113:8085/en/4-men?q=Size-L-XL | //div[2]/section/section/div[2]/section/ul/li[1] | //div[2]/section/section/div[2]/section/ul/li[2] |
 
-#    Examples:
-#      | gender | value | genderPage                                    |
-#      | Men    | S     | http://40.76.27.113:8085/en/4-men?q=Size-S    |
-#      | Men    | M     | http://40.76.27.113:8085/en/4-men?q=Size-M    |
-#      | Men    | L     | http://40.76.27.113:8085/en/4-men?q=Size-L    |
-#      | Men    | XL    | http://40.76.27.113:8085/en/4-men?q=Size-XL   |
-#      | Women  | S     | http://40.76.27.113:8085/en/4-women?q=Size-S  |
-#      | Women  | M     | http://40.76.27.113:8085/en/4-women?q=Size-M  |
-#      | Women  | L     | http://40.76.27.113:8085/en/4-women?q=Size-L  |
-#      | Women  | XL    | http://40.76.27.113:8085/en/4-women?q=Size-XL |
+  Scenario Outline: Verify two values for filter Size in Categories Women page
+    Given User is on MyStore page
+    And user selects Clothes section
+    And user selects Women link under Clothes section
+    When user selects two filters <filter1> and <filter2> under Categories Size page
+    Then <link> and active filters <actFilter1> and <actFilter2> are shown
 
-#  Scenario Outline: Verify combinations of values for filter Size in Clothes section for pages Men and Women
-#    Given user is on the My Store page
-#    And user selects Clothes section
-#    And user selects <gender>
-#    When user selects <number> of options from Size filter
-#    Then <genderPage> is opened
-#    And <number> active filters are shown
-
-#    Examples:
-#      | gender | number | genderPage                                          |
-#      | Men    | 2      | http://40.76.27.113:8085/en/4-men?q=Size-S-M        |
-#      | Men    | 3      | http://40.76.27.113:8085/en/4-men?q=Size-S-L-XL     |
-#      | Men    | 4      | http://40.76.27.113:8085/en/4-men?q=Size-S-M-L-XL   |
-#      | Women  | 2      | http://40.76.27.113:8085/en/4-women?q=Size-S-L      |
-#      | Women  | 3      | http://40.76.27.113:8085/en/4-women?q=Size-S-M-XL   |
-#      | Women  | 4      | http://40.76.27.113:8085/en/4-women?q=Size-S-M-L-XL |
+    Examples:
+      | filter1                               | filter2                               | link                                            | actFilter1                                       | actFilter2                                       |
+      | //section[1]/ul/li[1]/label/span/span | //section[1]/ul/li[2]/label/span/span | http://40.76.27.113:8085/en/5-women?q=Size-S-M  | //div[2]/section/section/div[2]/section/ul/li[1] | //div[2]/section/section/div[2]/section/ul/li[2] |
+      | //section[1]/ul/li[2]/label/span/span | //section[1]/ul/li[3]/label/span/span | http://40.76.27.113:8085/en/5-women?q=Size-M-L  | //div[2]/section/section/div[2]/section/ul/li[1] | //div[2]/section/section/div[2]/section/ul/li[2] |
+      | //section[1]/ul/li[1]/label/span/span | //section[1]/ul/li[4]/label/span/span | http://40.76.27.113:8085/en/5-women?q=Size-S-XL | //div[2]/section/section/div[2]/section/ul/li[1] | //div[2]/section/section/div[2]/section/ul/li[2] |

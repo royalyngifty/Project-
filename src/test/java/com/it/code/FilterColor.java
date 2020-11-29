@@ -31,8 +31,7 @@ public class FilterColor extends TestClass {
 
     @Then("Black is active filter")
     public void blackIsActiveFilter() {
-        Assertions.assertTrue(waitForActiveFilter(filterColorBlack));
-
+        Assertions.assertTrue(waitForActiveFilter("//section/section/div[2]/section/ul/li"));
         tearDown();
     }
 

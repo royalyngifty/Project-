@@ -18,7 +18,7 @@ public class FilterSize extends TestClass {
         ClickElementXpath(filter1);
         waitForClearAllButtn();
         ClickElementXpath(filter2);
-
+        waitForActiveFilter("//div[2]/section/section/div[2]/section/ul/li[2]");
     }
 
     @Then("^([^\"]*) and active filters ([^\"]*) and ([^\"]*) are shown$")

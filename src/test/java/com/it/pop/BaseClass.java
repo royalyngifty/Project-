@@ -27,7 +27,7 @@ public class BaseClass {
         "\uE5CD";
 
     public static String filterColorWhite = "//section/section/div[2]/section/ul/li";
-    public static String filterColorBlack = "//div[2]/section/ul/li[2]";
+    public static String filterColorBlack = "//section/section/div[2]/section/ul/li[2]";
     public static String filterSizeS = "//div[2]/section/section/div[2]/section/ul/li";
     public static String filterSizeM = "//div[2]/section/section/div[2]/section/ul/li[2]";
     public static String filterSizeL = "//div[2]/section/section/div[2]/section/ul/li[3]";

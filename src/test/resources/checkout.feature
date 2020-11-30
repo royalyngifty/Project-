@@ -21,6 +21,7 @@ Feature: Checkout
       And click on Proceed to checkout button
       When fill data in mandatory fields
       And user clicks on Continue button
+      And fill data in mandatory fields on address
       And select shipping method
       And select payment method
       And agree to the terms of service

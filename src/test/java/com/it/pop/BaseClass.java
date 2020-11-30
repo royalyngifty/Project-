@@ -16,7 +16,7 @@ public class BaseClass {
 
     public static WebDriver driver;
     static JavascriptExecutor js;
-    public static String browser = "chrome";
+    public static String browser = "firefox";
 
     @BeforeAll
     public static void setUp(){

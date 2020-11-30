@@ -188,10 +188,60 @@ public class AllSteps extends TestClass {
     @Then("^Your order is confirmed is displayed$")
     public void your_order_is_confirmed_is_displayed() {
         assertTrue(driver.findElement(By.xpath("/html/body/main/section/div/div/section/section[1]/div/div/div/h3")).isDisplayed());
-        
+
 //        String actualString = driver.findElement(By.xpath("/html/body/main/section/div/div/section/section[1]/div/div/div/h3")).getText();
 //        assertTrue(actualString.contains("Your order is confirmed"));
 
+    }
+//SearchAndSort
+    //Testcase1
+    @Given("User clicks on search textbox")
+    public void user_clicks_on_search_textbox() {
+        driver.findElement(By.xpath("//*[@id=\"search_widget\"]/form/input[2]")).click();
+
+    }
+
+    @When("User gives search criteria")
+    public void user_gives_search_criteria() {
+        driver.findElement(By.xpath("//*[@id=\"search_widget\"]/form/input[2]")).sendKeys("mug");
+    }
+    @When("Clicks on Search icon")
+    public void clicks_on_search_icon() {
+        driver.findElement(By.xpath("/html/body/main/header/div[2]/div/div[1]/div[2]/div[2]/form/button")).click();
+    }
+    @Then("Search Results will be dispalyed")
+    public void search_results_will_be_dispalyed() {
+        String actualText=driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/div/div[1]/p")).getText();
+        String expectedText="There are 5 products.";
+        assertEquals(expectedText,actualText);
+        tearDown();
+    }
+    //Testcase2
+
+    @When("Clicks on Sort By textbox And select one choice")
+    public void clicks_on_sort_by_textbox_and_select_one_choice() {
+        driver.findElement(By.cssSelector(".select-title")).click();
+    }
+    @Then("Sort out the dispalyed results as per sorting order.")
+    public void sort_out_the_dispalyed_results_as_per_sorting_order() {
+        driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/div/div[2]/div/div/div/a[4]")).click();
+        String actualText=driver.findElement(By.xpath("//span[contains(@class, 'price') and text() = 'kr14.88']")).getText();
+        System.out.println("actualText"+actualText);
+        String expeText="kr14.88";
+        assertEquals(expeText,actualText);
+        tearDown();
+    }
+    //Testcase3
+    @When("User gives search {string}")
+    public void user_gives_search(String item) {
+        driver.findElement(By.xpath("//*[@id=\"search_widget\"]/form/input[2]")).sendKeys(item);
+    }
+    @Then("Search {string} will be dispalyed")
+    public void search_will_be_dispalyed(String result) {
+        String actualText=driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[1]/div/div[1]/p")).getText();
+        String expectedText=result;
+        assertEquals(expectedText,actualText);
+        tearDown();
     }
 
 

@@ -18,6 +18,7 @@ public class PageElements extends BaseClass{
     }
 
     public void ClickElementXpath(String xpath){
+
         driver.findElement(By.xpath(xpath)).click();
     }
 
@@ -40,6 +41,7 @@ public class PageElements extends BaseClass{
 
     }
     public void ClearFilter(){
+
         ClickElementXpath("//div[2]/div[2]/div/button");
     }
 

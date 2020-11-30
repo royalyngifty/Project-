@@ -1,7 +1,6 @@
 Feature: Search And Sort Feature
 
   @testing
-  @Proceed
   Scenario: Search for product
     Given User is on the homepage
     And User clicks on search textbox
@@ -10,7 +9,6 @@ Feature: Search And Sort Feature
     Then Search Results will be dispalyed
 
   @testing
-  @Proceed
   Scenario: Sort out the Product
     Given User is on the homepage
     And User clicks on search textbox
@@ -20,7 +18,6 @@ Feature: Search And Sort Feature
     Then Sort out the dispalyed results as per sorting order.
 
   @testing
-    @Proceed
   Scenario Outline: Search for different items
     Given User is on the homepage
     And User clicks on search textbox

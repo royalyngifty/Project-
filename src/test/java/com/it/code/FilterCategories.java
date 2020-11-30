@@ -20,7 +20,7 @@ public class FilterCategories extends TestClass {
 
     @Given("User is on MyStore page")
     public void userIsOnMyStorePage() {
-        setUpDriver();
+        setUp();
     }
 
     @And("user selects Clothes section")

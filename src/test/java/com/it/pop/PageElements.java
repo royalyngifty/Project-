@@ -21,6 +21,7 @@ public class PageElements extends BaseClass{
     }
 
     public void ClickElementXpath(String xpath){
+
         driver.findElement(By.xpath(xpath)).click();
     }
 
@@ -42,6 +43,7 @@ public class PageElements extends BaseClass{
         assertEquals(value,driver.findElement(By.xpath("//section[@id='js-active-search-filters']/ul/li")).getText());
     }
     public void ClearFilter(){
+
         ClickElementXpath("//div[2]/div[2]/div/button");
     }
 

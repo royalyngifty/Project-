@@ -66,24 +66,13 @@ public class BaseClass {
         if(browser.equalsIgnoreCase("firefox")){
             driver = new FirefoxDriver();
 
-        }
-        else if (browser.equalsIgnoreCase("chrome")){
-            driver = new ChromeDriver();
-        }
-        driver.get("http://40.76.27.113:8085/en/");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        js = (JavascriptExecutor)driver;
-    }
 
-    @BeforeEach
-    public void setUpDriver(){
-        if(browser.equalsIgnoreCase("firefox")){
-            driver = new FirefoxDriver();
 
         }
         else if (browser.equalsIgnoreCase("chrome")){
             driver = new ChromeDriver();
+
+
         }
         driver.get("http://40.76.27.113:8085/en/");
         driver.manage().window().maximize();

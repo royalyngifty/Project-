@@ -2,10 +2,6 @@ pipeline {
     agent {
         node { label "Group1" }
     }
-    tools {
-        maven 'Maven dator'
-//        jdk 'jdk8'
-    }
     stages {
         stage ('Initialize') {
             steps {

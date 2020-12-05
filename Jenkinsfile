@@ -9,7 +9,9 @@ pipeline {
     stages {
         stage ('Build') {
             steps {
-                mvn clean install
+                script {
+                    mvn clean install
+                }
             }
             post {
                 success {

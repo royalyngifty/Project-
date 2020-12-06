@@ -1,4 +1,7 @@
 pipeline {
+    environment {
+        PATH = "C:\\WINDOWS\\SYSTEM32"
+    }
     agent {
         node { label "Group1" }
     }

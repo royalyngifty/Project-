@@ -19,7 +19,7 @@ pipeline {
 //                    junit 'target/surefire-reports/**/*.xml'
 //                }
 //            }
-        }
+//        }
         stage ('Run Jmeter tests') {
             steps {
                 bat 'rmdir /s /q C:\\Tools\\Project-\\performance\\output'

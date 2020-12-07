@@ -22,9 +22,9 @@ pipeline {
         }
         stage ('Run Jmeter tests') {
             steps {
-                bat 'cd C:\Tools\apache-jmeter-5.3\bin'
-                bat 'rmdir /s /q C:\Tools\Project-\performance\output'
-                bat 'jmeter -n -t C:\Tools\Project-\performance\PrestShop.jmx -l C:\Tools\Project-\performance\output\log -e -o C:\Tools\Project-\performance\output'
+                bat 'cd C:\\Tools\\apache-jmeter-5.4\\bin'
+                bat 'rmdir /s /q C:\\Tools\\Project-\\performance\\output'
+                bat 'jmeter -n -t C:\\Tools\\Project-\\performance\\PrestShop.jmx -l C:\\Tools\\Project-\\performance\\output\\log -e -o C:\\Tools\\Project-\\performance\\output'
             }
         }
     }

@@ -9,7 +9,7 @@ pipeline {
         maven 'Maven dator'
 //        jdk 'jdk8'
     }
-//    stages {
+    stages {
 //        stage ('Build') {
 //            steps {
 //                bat 'mvn clean install'

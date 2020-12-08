@@ -1,4 +1,4 @@
-Feature: User chancks different language options
+Feature: User changes different language options
 
   @testing
   Scenario: User is able to choose English or Swedish

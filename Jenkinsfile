@@ -24,9 +24,7 @@ pipeline {
             steps {
                 //bat 'rmdir /s /q C:\\Tools\\Project-\\performance\\output || exit'
                 bat 'C:\\Tools\\apache-jmeter-5.4\\bin\\jmeter.bat -Jjmeter.save.saveservice.output_format=xml -n -t C:\\Tools\\Project-\\performance\\PrestShop.jmx -l C:\\Tools\\Project-\\performance\\output\\log -e -o C:\\Tools\\Project-\\performance\\output'
-            }
-            post {
-                perfReport modeThroughput: true, sourceDataFiles: '**/*.jtl'
+                step([$class: 'ArtifactArchiver', artifacts: '**/*.jtl, **/jmeter.log'])
             }
         }
     }

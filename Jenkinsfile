@@ -1,4 +1,25 @@
 pipeline {
+    agent {
+   node {
+                  label 'G1-Uwa'
+
+                   }
+    stages {
+        stage('Build') {
+            steps {
+               echo 'This is a minimal pipeline.'
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+/*pipeline {
     environment {
       PATH = "C:\\WINDOWS\\SYSTEM32;"
     }
@@ -23,4 +44,4 @@ pipeline {
            }
    }
 
-    }
+    }*/

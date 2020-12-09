@@ -1,46 +1,31 @@
-/*pipeline {
-    agent {
-   node {
-                  label 'G1-Uwa'
-
-         }
-        tools {
-                   maven 'maven_3_6_3 '
-                   jdk 'jdk8'
-               }
-    stages {
-        stage('Build') {
-            steps {
-               echo 'This is a minimal pipeline.'
-            }
-        }
-    } */
-
-
 pipeline {
     environment {
-      PATH = "C:\\WINDOWS\\SYSTEM32;"
+        PATH = "C:\\WINDOWS\\SYSTEM32;C:\\Tools\\Java\\jdk-14.0.2\\bin"
     }
     agent {
-        node { label "G1-Uwa" }
+        node { label "Group1" }
     }
     tools {
-        maven 'maven_3_6_3'
-
-        jdk 'jdk8'
+        maven 'maven 3.6.3 '
+//        jdk 'jdk8'
     }
-
     stages {
         stage ('Build') {
             steps {
-                withMaven(maven: 'maven_3_6_3')    //        bat 'mvn clean install'
-                sh 'mvn clean compile'
+                bat 'mvn clean install'
             }
             post {
                 success {
                     junit 'target/surefire-reports/**/*.xml'
                 }
-           }
-         }
-
+            }
+        }
+ /*       stage ('Run Jmeter tests') {
+            steps {
+                //bat 'rmdir /s /q C:\\Tools\\Project-\\performance\\output || exit'
+                bat 'C:\\Tools\\apache-jmeter-5.4\\bin\\jmeter.bat -n -t C:\\Tools\\Project-\\performance\\PrestShop.jmx -l test.jtl'
+                step([$class: 'ArtifactArchiver', artifacts: '**/*.jtl, **/jmeter.log'])
+            }*/
+        }
     }
+}

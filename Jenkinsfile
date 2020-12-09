@@ -1,7 +1,7 @@
 pipeline {
-    //environment {
-      //  PATH = "C:\\WINDOWS\\SYSTEM32;"
-    //}
+    environment {
+      PATH = "C:\\WINDOWS\\SYSTEM32;"
+    }
     agent {
         node { label "G1-Uwa" }
     }

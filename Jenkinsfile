@@ -1,4 +1,4 @@
-pipeline {
+/*pipeline {
     agent {
    node {
                   label 'G1-Uwa'
@@ -14,15 +14,10 @@ pipeline {
                echo 'This is a minimal pipeline.'
             }
         }
-    }
+    } */
 
 
-
-
-
-
-
-/*pipeline {
+pipeline {
     environment {
       PATH = "C:\\WINDOWS\\SYSTEM32;"
     }
@@ -47,4 +42,4 @@ pipeline {
            }
    }
 
-    }*/
+    }

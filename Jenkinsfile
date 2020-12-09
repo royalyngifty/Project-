@@ -21,8 +21,14 @@ pipeline {
     environment {
       PATH = "C:\\WINDOWS\\SYSTEM32;"
     }
-    agent {
-        any //node { label "G1-Uwa" }
+    agent any{
+    stage('Example') {
+                steps {
+                    echo 'Hello World'
+                }
+            }
+
+        //node { label "G1-Uwa" }
     }
     tools {
         maven 'maven_3_6_3'

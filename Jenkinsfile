@@ -7,7 +7,7 @@ pipeline {
     }
     tools {
         maven 'Maven dator'
-//        jdk 'jdk8'
+      jdk 'jdk8'
     }
     stages {
         stage ('Build') {
@@ -17,15 +17,9 @@ pipeline {
             post {
                 success {
                     junit 'target/surefire-reports/**/*.xml'
+                        }
                 }
             }
-        }
- /*       stage ('Run Jmeter tests') {
-            steps {
-                //bat 'rmdir /s /q C:\\Tools\\Project-\\performance\\output || exit'
-                bat 'C:\\Tools\\apache-jmeter-5.4\\bin\\jmeter.bat -n -t C:\\Tools\\Project-\\performance\\PrestShop.jmx -l test.jtl'
-                step([$class: 'ArtifactArchiver', artifacts: '**/*.jtl, **/jmeter.log'])
-            }*/
+
         }
     }
-}

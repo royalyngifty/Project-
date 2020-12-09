@@ -6,7 +6,7 @@ pipeline {
         node { label "G1-Uwa" }
     }
     tools {
-        maven 'Maven dator'
+        maven 'Maven 3.3'
         jdk 'jdk8'
     }
     stages {

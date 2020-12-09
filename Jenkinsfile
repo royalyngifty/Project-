@@ -5,7 +5,7 @@
 
          }
         tools {
-                   maven 'Maven 3.maven_3_6_3'
+                   maven 'maven_3_6_3 '
                    jdk 'jdk8'
                }
     stages {
@@ -22,7 +22,7 @@ pipeline {
       PATH = "C:\\WINDOWS\\SYSTEM32;"
     }
     agent {
-        node { label "G1-Uwa" }
+        any //node { label "G1-Uwa" }
     }
     tools {
         maven 'maven_3_6_3'
@@ -41,6 +41,6 @@ pipeline {
                     junit 'target/surefire-reports/**/*.xml'
                 }
            }
-   }
+         }
 
     }

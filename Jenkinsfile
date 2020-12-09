@@ -14,7 +14,7 @@
         options { timestamps () }
 
      environment {
-        PATH = "C:\\WINDOWS\\SYSTEM32" //"C:\\WINDOWS\\SYSTEM32;C:\\Program Files\\Java\\jdk1.8.0_271"
+        PATH = "C:\\WINDOWS\\SYSTEM32;C:\\Program Files\\Java\\jdk1.8.0_271"
     }
 
          stages {

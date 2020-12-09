@@ -1,4 +1,4 @@
-/*pipeline {
+/* pipeline {
     environment {
         PATH = "C:\\WINDOWS\\SYSTEM32;C:\\Program Files\\Java\\jdk1.8.0_271"
     }
@@ -17,6 +17,12 @@
             post {
                 success {
                     junit 'target/surefire-reports/**/*.xml'
+                    }
+                }
+            }
+        }
+    } */
+
 
 
     pipeline {

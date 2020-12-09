@@ -3,8 +3,8 @@ pipeline {
    node {
                   label 'G1-Uwa'
 
-           }
-             tools {
+         }
+        tools {
                    maven 'Maven 3.maven_3_6_3'
                    jdk 'jdk8'
                }
@@ -15,7 +15,6 @@ pipeline {
             }
         }
     }
-}
 
 
 

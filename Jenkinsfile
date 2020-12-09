@@ -25,7 +25,8 @@ pipeline {
         node { label "G1-Uwa" }
     }
     tools {
-        maven 'Maven maven_3_6_3'
+        maven 'maven_3_6_3'
+
         jdk 'jdk8'
     }
 

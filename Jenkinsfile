@@ -6,7 +6,7 @@ pipeline {
         node { label "Group1" }
     }
     tools {
-        maven 'maven 3.6.3 '
+        maven 'Maven dator'
 //        jdk 'jdk8'
     }
     stages {

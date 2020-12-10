@@ -10,16 +10,16 @@ pipeline {
 //        jdk 'jdk8'
     }
     stages {
-//        stage ('Build') {
-//            steps {
-//                bat 'mvn clean install'
-//            }
-//            post {
-//                success {
-//                    junit 'target/surefire-reports/**/*.xml'
-//                }
-//            }
-//        }
+        stage ('Build') {
+            steps {
+                bat 'mvn clean install'
+            }
+            post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml'
+                }
+            }
+        }
         stage ('Run Jmeter tests') {
             steps {
                 //bat 'rmdir /s /q C:\\Tools\\Project-\\performance\\output || exit'

@@ -70,6 +70,8 @@ public class BaseClass {
 
         }
         else if (browser.equalsIgnoreCase("chrome")){
+            System.setProperty("webdriver.chrome.driver",
+                "C:\\WebDriver\\bin\\chromedriver.exe");
             driver = new ChromeDriver();
 
 

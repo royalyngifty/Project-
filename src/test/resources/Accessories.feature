@@ -27,6 +27,17 @@ Feature: User clicks on Accessories category and uses filter options
      | //section[2]/ul/li[1]/label/span/span | Color: White\n |
      | //section[2]/ul/li[2]/label/span/span | Color: Black\n |
 
+  Scenario Outline: User filters by Composition
+    Given User is on the homepage
+    And User clicks on Accessories Category
+    When User selects "<composition>"
+    Then "<filter>" should be applied
+    Examples:
+      | composition                                 | filter          |
+      | //section[3]/ul/li[1]/label/span/span | Composition: Ceramic\n |
+      | //section[3]/ul/li[2]/label/span/span | Composition: Polyester\n |
+      | //section[3]/ul/li[3]/label/span/span | Composition: Recycled cardboard\n |
+
 # Scenario Outline: User filters by Dimension options
 #   Given User is on the homepage
 #   When User clicks on Art Category

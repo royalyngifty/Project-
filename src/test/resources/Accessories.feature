@@ -33,17 +33,44 @@ Feature: User clicks on Accessories category and uses filter options
     When User selects "<composition>"
     Then "<filter>" should be applied
     Examples:
-      | composition                                 | filter          |
+      | composition                           | filter          |
       | //section[3]/ul/li[1]/label/span/span | Composition: Ceramic\n |
       | //section[3]/ul/li[2]/label/span/span | Composition: Polyester\n |
       | //section[3]/ul/li[3]/label/span/span | Composition: Recycled cardboard\n |
 
-# Scenario Outline: User filters by Dimension options
-#   Given User is on the homepage
-#   When User clicks on Art Category
-#   Then select "<dimension>" and verify "<filter>"
-#   Examples:
-#     |dimension|filter|
-#     |//section[4]/ul/li/label/span/span|Dimension: 40x60cm\n|
-#     |//li[2]/label/span/span|Dimension: 60x90cm\n|
-#     |//li[3]/label/span/span|Dimension: 80x120cm\n|
+
+  Scenario Outline: User filters by Property
+    Given User is on the homepage
+    And User clicks on Accessories Category
+    When User selects "<property>"
+    Then "<filter>" should be applied
+    Examples:
+      | property                                 | filter          |
+      | //section[4]/ul/li[1]/label/span/span | Property: 120 pages\n |
+      | //section[4]/ul/li[2]/label/span/span | Property: Removable cover\n |
+
+
+  Scenario Outline: User filters by Brand
+    Given User is on the homepage
+    And User clicks on Accessories Category
+    When User selects "<brand>"
+    Then "<filter>" should be applied
+    Examples:
+      | brand                                 | filter          |
+      | //section[5]/ul/li[1]/label/span/span | Brand: Graphic Corner\n |
+      | //section[5]/ul/li[2]/label/span/span | Brand: Studio Design\n |
+
+
+  Scenario Outline: User filters by Paper Type
+    Given User is on the homepage
+    And User clicks on Accessories Category
+    When User selects "<papertype>"
+    Then "<filter>" should be applied
+    Examples:
+      | papertype                                 | filter          |
+      | //section[7]/ul/li[1]/label/span/span | Paper Type: Ruled\n |
+      | //section[7]/ul/li[2]/label/span/span | Paper Type: Plain\n |
+      | //section[7]/ul/li[3]/label/span/span | Paper Type: Squarred\n |
+      | //section[7]/ul/li[4]/label/span/span | Paper Type: Doted\n |
+
+

@@ -65,7 +65,8 @@ public class BaseClass {
     public static void setUp(){
         if(browser.equalsIgnoreCase("firefox")){
             driver = new FirefoxDriver();
-
+            System.setProperty("webdriver.chrome.driver",
+                    "C:\\WebDriver\\bin\\geckodriver.exe");
 
 
         }

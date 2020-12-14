@@ -17,7 +17,7 @@ public class BaseClass {
 
     public static WebDriver driver;
     static JavascriptExecutor js;
-    public static String browser = "chrome";
+    public static String browser = "firefox";
     public static String homePage = "http://40.76.27.113:8085/en/";
     public static String categoryMen = "//label/span/span";
     public static String categoryWomen = "//section[1]/ul/li[2]/label/span/span";

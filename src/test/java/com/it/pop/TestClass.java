@@ -69,7 +69,7 @@ public class TestClass extends PageElements{
     public void selectOneCategory(String oneCategory){
  //       goToClothesSection();
         ClickElementXpath(oneCategory);
-        driver.manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
     }
 
     @Test
